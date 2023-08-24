@@ -1,0 +1,26 @@
+﻿@model Libros
+    
+
+@{
+    ViewData["Title"] = "Eliminar Libros";
+}
+<h1>Eliminar libros</h1>
+
+<h3>¿Está seguro que desea eliminar el libro de @Model.Titulo ?</h3>
+
+@*<form asp-action="EliminarLibro" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="ui red button" /> |
+        <a asp-action="Index" class="ui blue button">Volver al listado</a>
+    </div>
+</form>*@
+<form asp-action="EliminarLibro" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Cantidad" value="tu_valor_aqui" /> @*cambio realizado *@
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="ui red button" /> |
+        <a asp-action="Index" class="ui blue button">Volver al listado</a>
+    </div>
+</form>
+

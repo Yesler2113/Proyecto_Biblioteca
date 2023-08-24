@@ -1,0 +1,18 @@
+﻿@model PrestamoLibros
+
+@{
+    ViewData["Title"] = "Eliminar Registro de Libro Prestado";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>¿Está seguro que desea eliminar el registro del libro de @Model.Id ?</h3>
+
+<form asp-action="EliminarLibroPrestado" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="LibroId" value="Eliminar" /> @*cambio realizado *@
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="ui red button" /> |
+        <a asp-action="Index" class="ui blue button">Volver al listado</a>
+    </div>
+</form>

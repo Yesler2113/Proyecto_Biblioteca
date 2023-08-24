@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Libros>
+
+@{
+    ViewData["Title"] = "Libros Disponibles";
+}
+
+<div>
+    
+</div>
+<h1>Libros Disponibles</h1>
+
+<a asp-action="Guardar" class="ui blue button">Agregar Nuevo Libro</a>
+
+<div class="ui action input">
+    <form asp-action="Buscar" method="get">
+        <input type="text" name="titulo" placeholder="Buscar por título...">
+        <button type="submit" class="ui button">Buscar</button>
+    </form>
+</div>
+
+<table class="ui stackable table celled">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Genero</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var libros in Model)
+        {
+            <tr>
+                <td>@libros.Titulo</td>
+                <td>@libros.Autor</td>
+                <td>@libros.Genero</td>
+                <td>@libros.Cantidad</td>
+                <td>
+                    <a asp-action="Actualizar" asp-route-id="@libros.Id" class="ui blue button"><i class="edit icon"></i></a>
+                    <a asp-action="Eliminar" asp-route-id="@libros.Id" class="ui red button"><i class="trash icon"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

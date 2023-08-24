@@ -1,0 +1,62 @@
+﻿@model PrestarLibroViewModel
+
+@{
+    ViewData["Title"] = "Prestar Libro";
+}
+
+
+
+<form asp-action="PrestarLibro" method="post">
+    <div class="ui form container-fluid">
+        <div class="required field">
+            <label asp-for="LibroId">Titulo Libro</label>
+            <select asp-for="LibroId" asp-items="@Model.Libros" class="ui dropdown"></select>
+            <span asp-validation-for="LibroId" class="ui text-secondary"></span>
+        </div>
+    </div>
+    
+    <div class="ui form">
+        <div class="required field">
+            <label asp-for="NombreCliente">Nombre Cliente</label>
+            <input asp-for="NombreCliente" type="text" placeholder="Nombre del cliente">
+            <span asp-validation-for="NombreCliente" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="required field">
+            <label asp-for="Telefono">Telefono</label>
+            <input asp-for="Telefono" type="text" placeholder="Ingrese el telefono">
+            <span asp-validation-for="Telefono" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="required">
+            <label asp-for="Correo">Correo</label>
+            <input asp-for="Correo" type="email" placeholder="Ingrese el Correo">
+            <span asp-validation-for="Correo" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="required">
+            <label asp-for="FechaPrestamo">Fecha del Prestamo</label>
+            <input asp-for="FechaPrestamo" type="date" placeholder="Ingrese la fecha">
+            <span asp-validation-for="FechaPrestamo" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="required">
+            <label asp-for="FechaDevolucion">Fecha Devolucion</label>
+            <input asp-for="FechaDevolucion" type="date" placeholder="Ingrese la fecha">
+            <span asp-validation-for="FechaDevolucion" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <button class="ui primary button" type="submit">Guardar</button>
+    <a asp-action="Index" class="ui red button">Cancelar</a>
+
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

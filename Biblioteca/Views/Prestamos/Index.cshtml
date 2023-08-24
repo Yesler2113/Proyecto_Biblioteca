@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LibroPrestadoDetalle>
+
+@{
+    ViewData["Title"] = "Prestamos";
+}
+<div>
+
+</div>
+
+<h1>Listado de Libros Prestados</h1>
+
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Nombre Cliente</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            <th>Fecha Prestamo</th>
+            <th>Fecha Devolucion</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var libro in Model)
+        {
+            <tr>
+                <td>@libro.Titulo</td>
+                <td>@libro.NombreCliente</td>
+                <td>@libro.Telefono</td>
+                <td>@libro.Correo</td>
+                <td>@libro.FechaPrestamo.ToShortDateString()</td>
+                <td>@libro.FechaDevolucion.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Eliminar" asp-route-id="@libro.PrestamoId" class="ui red button"><i class="trash icon"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

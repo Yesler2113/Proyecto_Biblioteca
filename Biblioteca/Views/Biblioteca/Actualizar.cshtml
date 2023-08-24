@@ -1,0 +1,48 @@
+﻿@model Libros
+
+
+@{
+    ViewData["Title"] = "Actualizar Libros";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Actualizar">
+    <input type="hidden" asp-for="Id"/>
+    <div class="ui form container-fluid">
+        <div class="requiered field">
+            <label asp-for="Titulo">Titulo</label>
+            <input asp-for="Titulo" type="text" placeholder="Titulo del Libro">
+            <span asp-validation-for="Titulo" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="required field">
+            <label asp-for="Autor">Autor</label>
+            <input asp-for="Autor" type="text" placeholder="Nombre del Autor">
+            <span asp-validation-for="Autor" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="required field">
+            <label asp-for="Genero">Genero</label>
+            <input asp-for="Genero" type="text" placeholder="Genero del Libro">
+            <span asp-validation-for="Genero" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="required">
+            <label asp-for="Cantidad">Cantidad</label>
+            <input asp-for="Cantidad" type="text" placeholder="Cantidad Ingresada">
+            <span asp-validation-for="Cantidad" class="ui text-secondary"></span>
+        </div>
+    </div>
+    <button class="ui primary button">Actualizar</button>
+    <a asp-action="Index" class="ui red button">Cancelar</a>
+
+</form>
+
+@*@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}*@

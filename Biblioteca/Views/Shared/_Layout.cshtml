@@ -1,0 +1,79 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Test.styles.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/Custom.css" asp-append-version="true" />
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* Ensures items stretch to full width */
+            justify-content: flex-start; /* Align items at the top */
+            margin: 0;
+        }
+
+        .site-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .view-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .view {
+            max-width: 1000px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body class="site">
+    <div class="site-content">
+        <header>
+            <div class="ui fixed menu">
+                <div class="ui secondary pointing menu stackable">
+                    <a class="item" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                    <a class="item" asp-area="" asp-controller="Biblioteca" asp-action="Guardar">Añadir Libro</a>
+                    <a class="item" asp-area="" asp-controller="Biblioteca" asp-action="Index">Libros Disponibles</a>
+                    <a class="item" asp-area="" asp-controller="Prestamos" asp-action="PrestarLibro">Prestar Libro</a>
+                    <a class="item" asp-area="" asp-controller="Prestamos" asp-action="Index">Libros Prestados</a>
+                </div>
+            </div>
+        </header>
+
+
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <p>&copy; 2023 - Yesler M. and Cesar F. - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
