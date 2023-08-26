@@ -41,29 +41,6 @@ namespace Biblioteca.Controllers
 
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> PrestarLibro(PrestarLibroViewModel modelo)
-        //{
-        //    var libroId = servicioLibros.ObtenerLibrosId();
-
-        //    var prestamos = await repositorioBiblioteca.ObtenerLibroPorId(modelo.LibroId);
-
-        //    if (prestamos == null)
-        //    {
-        //        return RedirectToAction("NoEncontrado", "Home");
-        //    }
-        //    if (!ModelState.IsValid)
-        //    {
-        //        modelo.Libros = await ObtenerLibros();
-        //        return View (modelo);
-        //    }
-
-        //    await repositorioPrestarLibro.PrestarLibro(modelo);
-        //    await repositorioBiblioteca.DisminuirCantidadLibro(modelo.LibroId);
-
-        //    return RedirectToAction("Index");
-        //}
-
         [HttpPost]
         public async Task<IActionResult> PrestarLibro(PrestarLibroViewModel modelo)
         {
@@ -104,34 +81,6 @@ namespace Biblioteca.Controllers
             return View(librosPrestados);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Eliminar(int libroId)
-        //{
-        //    var libro = await repositorioPrestarLibro.ObtenerLibroPorId(libroId);
-        //    if (libro == null)
-        //    {
-        //        return RedirectToAction("NoEncontrado", "Home");
-        //    }
-        //    return View(libro);
-        //}
-
-
-        ////[HttpPost, ActionName("Eliminar")]
-        ////[ValidateAntiForgeryToken] // Esta anotación añade protección contra ataques CSRF
-        ////public async Task<IActionResult> ConfirmarEliminar(int libroId)
-        ////{
-        ////    await repositorioPrestarLibro.EliminarLibroPrestado(libroId);
-        ////    return RedirectToAction("Index");
-        ////}
-
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> EliminarLibroPrestado(int id)
-        //{
-        //    await repositorioPrestarLibro.EliminarLibroPrestado(id);
-        //    return RedirectToAction("VerLibrosPrestados");
-        //}
 
 
         [HttpGet]
